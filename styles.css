@@ -109,7 +109,6 @@ audio {
     opacity: 0;
     visibility: hidden;
     box-shadow: -15px 15px 1em rgba(0, 0, 0, 0.2);
-    transition: opacity 0.3s ease-in;
 }
 
 .tabs input[type="radio"] + label {

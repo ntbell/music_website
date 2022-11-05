@@ -1,44 +1,54 @@
-const context = new AudioContext();
+import createVisualizer from "./visualizer.js";
 
-// Activates the clicked tab and starts playing the song
-function playSong(song) {
-    /**
-     * Starts playing the song
-     */
-    const audio = document.getElementById("audio");
+// ToDo: Fix the AudioContext being called immediately when refreshed
+// It must be called in response to a click event
+// Call instead inside of the playSong if it doesn't exist yet?
+const audio = document.getElementById("audio");
+const context = new (window.AudioContext || window.webkitAudioContext)();
+const analyser = context.createAnalyser();
+const source = context.createMediaElementSource(audio);
+source.connect(analyser);
+analyser.connect(context.destination);
+let prevSong = "";
 
-    if (!audio.paused) {
-        audio.pause();
-        audio.currentTime = 0;
+window.onload = createVisualizer(analyser);
+
+// Plays the selected song
+export default function playSong(song) {
+    if (song !== prevSong) {
+        // Pause and reset the current song if a new one is clicked
+        if (!audio.paused) {
+            audio.pause();
+            audio.currentTime = 0;
+        }
+
+        switch (song) {
+            case "thisTown":
+                audio.src = "../music/thisTown.mp3";
+                break;
+            case "breakingHeart":
+                audio.src = "../music/breakingHeart.mp3";
+                break;
+            case "fadingOut":
+                audio.src = "../music/fadingOut.mp3";
+                break;
+            default:
+                break;
+        }
+
+        // Load and play the new song
+        audio.load();
+        audio.play();
+        prevSong = song;
     }
-
-    switch (song) {
-        case "thisTown":
-            audio.src = "../music/thisTown.mp3";
-            break;
-        case "breakingHeart":
-            audio.src = "../music/breakingHeart.mp3";
-            break;
-        case "fadingOut":
-            audio.src = "../music/fadingOut.mp3";
-            break;
-        default:
-            break;
-    }
-
-    audio.load();
-    audio.play();
-
-    /**
-     * Updates the button styles
-     */
-    const y = document.getElementsByClassName("song-button");
-
-    // Update the style of the buttons not clicked
-    for (let i = 0; i < y.length; i++) {
-        y[i].style.color = "red";
-    }
-
-    // Update the style of the clicked button
-    document.getElementById(song).style.color = "blue";
 }
+
+document
+    .getElementById("thisTown")
+    .addEventListener("click", () => playSong("thisTown"));
+document
+    .getElementById("breakingHeart")
+    .addEventListener("click", () => playSong("breakingHeart"));
+document
+    .getElementById("fadingOut")
+    .addEventListener("click", () => playSong("fadingOut"));

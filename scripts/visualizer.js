@@ -3,26 +3,24 @@
  * Youtube video reference: https://www.youtube.com/watch?v=TpMPzX5CP3c
  * Code adapted from:       https://codesandbox.io/s/bold-pond-fqq22?file=%2Fsrc%2Findex.js
  */
-window.onload = function attachVisualizer() {
+export default function createVisualizer(analyser) {
+    console.error("attaching");
     const myCanvas = document.getElementById("canvas");
     myCanvas.width = 500;
     myCanvas.height = 500;
     const ctx = myCanvas.getContext("2d");
     let freqs;
 
-    const audio = document.getElementById("audio");
-    const context = new (window.AudioContext || window.webkitAudioContext)();
-    const analyser = context.createAnalyser();
-    const source = context.createMediaElementSource(audio);
-    source.connect(analyser);
-    analyser.connect(context.destination);
-
     freqs = new Uint8Array(analyser.frequencyBinCount);
 
     function draw() {
+        // Clear the previous bars before rendering a new frame
         ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
 
+        // Set the radius of the circle
         let radius = 100;
+
+        // Set the number of bars
         let bars = 75;
 
         analyser.getByteFrequencyData(freqs);
@@ -30,6 +28,7 @@ window.onload = function attachVisualizer() {
         // Draw bars
         for (var i = 0; i < bars; i++) {
             let radians = (Math.PI * 2) / bars;
+            // Set the length of the bars
             let bar_height = freqs[i] * 0.55;
 
             let x = myCanvas.width / 2 + Math.cos(radians * i) * radius;
@@ -40,13 +39,13 @@ window.onload = function attachVisualizer() {
             let y_end =
                 myCanvas.height / 2 +
                 Math.sin(radians * i) * (radius + bar_height);
-            let color =
-                "rgb(" + 0 + ", " + (0 - freqs[i]) + ", " + freqs[i] + ")";
 
+            // Set the color of the bars
             const r = freqs[i] / 2;
             const g = freqs[i] * 1.1;
             const b = freqs[i] / 1.8;
-            color = `rgb(${r}, ${g}, ${b})`;
+            const color = `rgb(${r}, ${g}, ${b})`;
+
             ctx.strokeStyle = color;
             ctx.lineWidth = 3;
             ctx.beginPath();
@@ -58,4 +57,4 @@ window.onload = function attachVisualizer() {
     }
 
     draw();
-};
+}
