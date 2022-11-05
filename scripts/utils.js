@@ -14,13 +14,13 @@ function playSong(song) {
 
     switch (song) {
         case "thisTown":
-            audio.src = "thisTown.mp3";
+            audio.src = "../music/thisTown.mp3";
             break;
         case "breakingHeart":
-            audio.src = "breakingHeart.mp3";
+            audio.src = "../music/breakingHeart.mp3";
             break;
         case "fadingOut":
-            audio.src = "fadingOut.mp3";
+            audio.src = "../music/fadingOut.mp3";
             break;
         default:
             break;
