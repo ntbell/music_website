@@ -1,0 +1,87 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: fit-content;
+    background-color: black;
+    color: white;
+    padding: 15px 15px 0px 15px;
+    border-bottom: 1px solid white;
+}
+
+.navbar-name {
+    color: white;
+    font-size: 2em;
+    padding-bottom: 10px;
+}
+
+.icons-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    width: fit-content;
+    height: 100%;
+    color: white;
+}
+
+.icon {
+    padding-left: 10px;
+}
+
+.cactus-icon {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 128px;
+    z-index: 2;
+}
+
+body {
+    margin: 0;
+    background-color: black;
+}
+
+.embedded-music-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.soundcloud-embedded {
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.email-link {
+    color: white;
+}
+
+#thefile {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+}
+
+#canvas {
+    position: absolute;
+    left: calc(50% - 248px);
+    top: 103px;
+    z-index: 1;
+}
+
+audio {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    width: calc(100% - 20px);
+}
