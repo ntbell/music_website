@@ -20,44 +20,17 @@ window.onload = function attachVisualizer() {
     freqs = new Uint8Array(analyser.frequencyBinCount);
 
     function draw() {
+        ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+
         let radius = 100;
-        let bars = 100;
+        let bars = 75;
 
-        // Draw Background
-        ctx.fillStyle = "black";
-        ctx.fillRect(0, 0, myCanvas.width, myCanvas.height);
-
-        // Draw circle
-        /*
-        ctx.beginPath();
-        ctx.arc(
-            myCanvas.width / 2,
-            myCanvas.height / 2,
-            radius,
-            0,
-            2 * Math.PI
-        );
-        ctx.stroke();
-        */
         analyser.getByteFrequencyData(freqs);
-
-        // Draw label
-        /*
-        ctx.font = "500 24px Helvetica Neue";
-        const avg =
-            [...Array(255).keys()].reduce((acc, curr) => acc + freqs[curr], 0) /
-            255;
-        ctx.fillStyle = "rgb(" + 200 + ", " + (200 - avg) + ", " + avg + ")";
-        ctx.textAlign = "center";
-        ctx.textBaseline = "top";
-        ctx.fillText("SPACE", myCanvas.width / 2, myCanvas.height / 2 - 24);
-        ctx.fillText("FORCE", myCanvas.width / 2, myCanvas.height / 2 + 6);
-        */
 
         // Draw bars
         for (var i = 0; i < bars; i++) {
             let radians = (Math.PI * 2) / bars;
-            let bar_height = freqs[i] * 0.5;
+            let bar_height = freqs[i] * 0.55;
 
             let x = myCanvas.width / 2 + Math.cos(radians * i) * radius;
             let y = myCanvas.height / 2 + Math.sin(radians * i) * radius;
@@ -68,7 +41,12 @@ window.onload = function attachVisualizer() {
                 myCanvas.height / 2 +
                 Math.sin(radians * i) * (radius + bar_height);
             let color =
-                "rgb(" + 200 + ", " + (200 - freqs[i]) + ", " + freqs[i] + ")";
+                "rgb(" + 0 + ", " + (0 - freqs[i]) + ", " + freqs[i] + ")";
+
+            const r = freqs[i] / 2;
+            const g = freqs[i] * 1.1;
+            const b = freqs[i] / 1.8;
+            color = `rgb(${r}, ${g}, ${b})`;
             ctx.strokeStyle = color;
             ctx.lineWidth = 3;
             ctx.beginPath();
@@ -79,5 +57,5 @@ window.onload = function attachVisualizer() {
         requestAnimationFrame(draw);
     }
 
-    requestAnimationFrame(draw);
+    draw();
 };

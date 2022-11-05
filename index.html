@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="./styles.css" />
         <link rel="icon" href="./svgs/cactus-black.svg" />
+        <script src="./scripts/visualizer.js"></script>
     </head>
     <body>
         <!-- Navbar -->
@@ -25,7 +26,8 @@
                         xmlns="http://www.w3.org/2000/svg"
                         width="30"
                         height="30"
-                        stroke="white"
+                        fill="black"
+                        stroke="transparent"
                     >
                         <title>SoundCloud</title>
                         <path
@@ -44,7 +46,7 @@
                         viewBox="0 0 24 24"
                         width="24"
                         height="24"
-                        stroke="white"
+                        stroke="black"
                     >
                         <title>Facebook</title>
                         <path
@@ -64,8 +66,8 @@
                         viewBox="0 0 24 24"
                         width="22"
                         height="22"
-                        stroke="white"
-                        fill="white"
+                        stroke="black"
+                        fill="black"
                         stroke-width="0"
                     >
                         <title>Instagram</title>
@@ -77,96 +79,86 @@
             </div>
         </div>
 
-        <div id="content">
-            <div class="song-button-wrapper">
-                <button
-                    class="song-button"
-                    id="thisTown"
-                    onclick="playSong('thisTown')"
-                >
-                    This Town
-                </button>
-                <button
-                    class="song-button"
-                    id="fadingOut"
-                    onclick="playSong('fadingOut')"
-                >
-                    Fading Out
-                </button>
-                <button
-                    class="song-button"
-                    id="breakingHeart"
-                    onclick="playSong('breakingHeart')"
-                >
-                    Breaking Heart
-                </button>
+        <div class="tabs">
+            <input
+                type="radio"
+                name="tabs"
+                id="thisTown"
+                onclick="playSong('thisTown')"
+            />
+            <label for="thisTown" class="thisTown">This Town</label>
+            <div class="tab">
+                <div class="cactus-icon">
+                    <video width="500" autoplay loop>
+                        <source
+                            src="./videos/cactus-spin_VP9.webm"
+                            type="video/webm"
+                        />
+                        Your browser is not supported. Please try another!
+                    </video>
+                </div>
             </div>
-            <div class="cactus-icon">
-                <video width="500" autoplay loop>
-                    <source
-                        src="./videos/cactus-spin_VP9.webm"
-                        type="video/webm"
-                    />
-                    Your browser is not supported. Please try another!
-                </video>
+            <input
+                type="radio"
+                name="tabs"
+                id="fadingOut"
+                onclick="playSong('fadingOut')"
+                class="thisTown"
+            />
+            <label for="fadingOut" class="fadingOut">Fading Out</label>
+            <div class="tab">
+                <div class="cactus-icon">
+                    <video width="500" autoplay loop>
+                        <source
+                            src="./videos/cactus-spin_VP9.webm"
+                            type="video/webm"
+                        />
+                        Your browser is not supported. Please try another!
+                    </video>
+                </div>
             </div>
-            <canvas id="canvas" style="border: 1px solid #fff"></canvas>
-            <audio id="audio" controls>
-                <source type="audio/mpeg" />
-            </audio>
+            <input
+                type="radio"
+                name="tabs"
+                id="breakingHeart"
+                onclick="playSong('breakingHeart')"
+            />
+            <label for="breakingHeart" class="breakingHeart"
+                >Breaking Heart</label
+            >
+            <div class="tab">
+                <div class="cactus-icon">
+                    <video width="500" autoplay loop>
+                        <source
+                            src="./videos/cactus-spin_VP9.webm"
+                            type="video/webm"
+                        />
+                        Your browser is not supported. Please try another!
+                    </video>
+                </div>
+            </div>
         </div>
+        <canvas id="canvas" class="canvas"></canvas>
+
+        <audio id="audio" controls>
+            <source type="audio/mpeg" />
+        </audio>
 
         <!-- 
             Changing tabs changes color of visualizer bars and canvas background
             Refer to: https://codepen.io/celcarpe/pen/VwZrJpj
         -->
 
-        <!--
-        <div class="embedded-music-wrapper">
-            <div class="soundcloud-embedded">
-                <iframe
-                    width="75%"
-                    height="175"
-                    scrolling="no"
-                    frameborder="no"
-                    allow="autoplay"
-                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/687468382&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-                ></iframe>
-            </div>
-
-            <div class="soundcloud-embedded">
-                <iframe
-                    width="75%"
-                    height="175"
-                    scrolling="no"
-                    frameborder="no"
-                    allow="autoplay"
-                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/886460743&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-                ></iframe>
-            </div>
-
-            <div class="soundcloud-embedded">
-                <iframe
-                    width="75%"
-                    height="175"
-                    scrolling="no"
-                    frameborder="no"
-                    allow="autoplay"
-                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/680648372&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-                ></iframe>
-            </div>
-        </div>
-        -->
-
         <!-- Footer -->
+        <!--
         <footer class="footer">
             <a class="email-link" href="mailto: contactrenomusic@gmail.com"
                 >Bookings/Contact</a
             >
         </footer>
+    -->
 
         <!-- Scripts-->
         <script src="./scripts/utils.js"></script>
-        <script src="./scripts/visualizer.js"></script>
     </body>
 </html>
