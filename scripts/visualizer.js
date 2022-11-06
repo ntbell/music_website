@@ -3,18 +3,28 @@
  * Youtube video reference: https://www.youtube.com/watch?v=TpMPzX5CP3c
  * Code adapted from:       https://codesandbox.io/s/bold-pond-fqq22?file=%2Fsrc%2Findex.js
  */
-export default function createVisualizer(analyser) {
-    console.error("attaching");
+export default function createVisualizer(audio) {
+    // Initialize and connect the visualizer to the audio
+    const audioContext = new (window.AudioContext ||
+        window.webkitAudioContext)();
+    const analyser = audioContext.createAnalyser();
+    const source = audioContext.createMediaElementSource(audio);
+    source.connect(analyser);
+    analyser.connect(audioContext.destination);
+
+    // Grab the canvas element
     const myCanvas = document.getElementById("canvas");
     myCanvas.width = 500;
     myCanvas.height = 500;
     const ctx = myCanvas.getContext("2d");
-    let freqs;
 
+    // Bin the audio into frequency bands?
+    let freqs;
     freqs = new Uint8Array(analyser.frequencyBinCount);
 
+    // Draws the audio visualizer bars per animation frame
     function draw() {
-        // Clear the previous bars before rendering a new frame
+        // Clear the previous visualizer bars before rendering a new frame
         ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
 
         // Set the radius of the circle
@@ -23,9 +33,10 @@ export default function createVisualizer(analyser) {
         // Set the number of bars
         let bars = 75;
 
+        // Refer to: https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode/getByteFrequencyData
         analyser.getByteFrequencyData(freqs);
 
-        // Draw bars
+        // Draw bars with the frequency data, in the shape of a circle around the .webm video
         for (var i = 0; i < bars; i++) {
             let radians = (Math.PI * 2) / bars;
             // Set the length of the bars
@@ -40,7 +51,7 @@ export default function createVisualizer(analyser) {
                 myCanvas.height / 2 +
                 Math.sin(radians * i) * (radius + bar_height);
 
-            // Set the color of the bars
+            // Set the color of the bars (to green-ish) dynamically in response to the frequency bands
             const r = freqs[i] / 2;
             const g = freqs[i] * 1.1;
             const b = freqs[i] / 1.8;
@@ -53,8 +64,11 @@ export default function createVisualizer(analyser) {
             ctx.lineTo(x_end, y_end);
             ctx.stroke();
         }
+
+        // Callback to draw the next animation frame
         requestAnimationFrame(draw);
     }
 
+    // Initiate the first animation frame draw
     draw();
 }

@@ -1,23 +1,23 @@
 import createVisualizer from "./visualizer.js";
 
-// ToDo: Fix the AudioContext being called immediately when refreshed
-// It must be called in response to a click event
-// Call instead inside of the playSong if it doesn't exist yet?
+// Get the audio element
 const audio = document.getElementById("audio");
+
+// Initialize global vars
 let prevSong = "";
 let firstSong = true;
 
-// Plays the selected song
+/**
+ * Plays the selected song and adds a visualizer
+ * @param {String} song The song to play
+ */
 export default function playSong(song) {
     if (firstSong) {
-        const context = new (window.AudioContext ||
-            window.webkitAudioContext)();
-        const analyser = context.createAnalyser();
-        const source = context.createMediaElementSource(audio);
-        source.connect(analyser);
-        analyser.connect(context.destination);
-        createVisualizer(analyser);
+        // Show the audio player
+        // Create and attach the analyser
         firstSong = false;
+        audio.removeAttribute("hidden");
+        createVisualizer(audio);
     }
 
     if (song !== prevSong) {
@@ -27,6 +27,7 @@ export default function playSong(song) {
             audio.currentTime = 0;
         }
 
+        // Available song selections
         switch (song) {
             case "thisTown":
                 audio.src = "../music/thisTown.mp3";
@@ -41,7 +42,6 @@ export default function playSong(song) {
                 break;
         }
 
-        // Load and play the new song
         audio.load();
         audio.play();
         prevSong = song;
