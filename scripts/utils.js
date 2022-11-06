@@ -4,17 +4,22 @@ import createVisualizer from "./visualizer.js";
 // It must be called in response to a click event
 // Call instead inside of the playSong if it doesn't exist yet?
 const audio = document.getElementById("audio");
-const context = new (window.AudioContext || window.webkitAudioContext)();
-const analyser = context.createAnalyser();
-const source = context.createMediaElementSource(audio);
-source.connect(analyser);
-analyser.connect(context.destination);
 let prevSong = "";
-
-window.onload = createVisualizer(analyser);
+let firstSong = true;
 
 // Plays the selected song
 export default function playSong(song) {
+    if (firstSong) {
+        const context = new (window.AudioContext ||
+            window.webkitAudioContext)();
+        const analyser = context.createAnalyser();
+        const source = context.createMediaElementSource(audio);
+        source.connect(analyser);
+        analyser.connect(context.destination);
+        createVisualizer(analyser);
+        firstSong = false;
+    }
+
     if (song !== prevSong) {
         // Pause and reset the current song if a new one is clicked
         if (!audio.paused) {
@@ -43,12 +48,16 @@ export default function playSong(song) {
     }
 }
 
-document
-    .getElementById("thisTown")
-    .addEventListener("click", () => playSong("thisTown"));
-document
-    .getElementById("breakingHeart")
-    .addEventListener("click", () => playSong("breakingHeart"));
-document
-    .getElementById("fadingOut")
-    .addEventListener("click", () => playSong("fadingOut"));
+function attachListeners() {
+    document
+        .getElementById("thisTown")
+        .addEventListener("click", () => playSong("thisTown"));
+    document
+        .getElementById("breakingHeart")
+        .addEventListener("click", () => playSong("breakingHeart"));
+    document
+        .getElementById("fadingOut")
+        .addEventListener("click", () => playSong("fadingOut"));
+}
+
+window.onload = attachListeners();
