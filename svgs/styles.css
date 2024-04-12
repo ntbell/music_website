@@ -1,0 +1,17 @@
+.icons-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  width: fit-content;
+  height: 100%;
+  color: white;
+}
+
+.icon-wrapper {
+  padding-left: 10px;
+}
+
+.icon {
+  width: 100px;
+  height: 100px;
+}

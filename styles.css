@@ -1,161 +1,148 @@
 body {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    width: 100vw;
-    background: linear-gradient(#f2a65a, #772f1a);
-    box-sizing: border-box;
-    font-weight: 300;
-    line-height: 1.5;
-    margin: 0;
-    font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(#f2a65a, #772f1a);
+  box-sizing: border-box;
+  font-weight: 300;
+  line-height: 1.5;
+  margin: 0;
+  font-size: 1.2em;
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    width: calc(100% - 30px);
-    background-color: transparent;
-    padding: 15px 15px 0 15px;
-    margin-bottom: 25px;
-    border-bottom: 1px solid black;
-}
-
-.icons-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-self: center;
-    width: fit-content;
-    height: 100%;
-    color: white;
-}
-
-.icons {
-    padding-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 30px);
+  background-color: transparent;
+  padding: 15px 15px 0 15px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid black;
 }
 
 .content-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #canvas {
-    position: absolute;
-    top: 138px;
-    z-index: 1;
+  position: absolute;
+  top: 138px;
+  z-index: 1;
 }
 
 .cactus {
-    position: absolute;
-    display: flex;
-    align-content: center;
-    top: 138px;
-    left: calc(50% - 254px);
-    width: 500px;
-    height: 500px;
-    z-index: 2;
+  position: absolute;
+  display: flex;
+  align-content: center;
+  top: 138px;
+  left: calc(50% - 254px);
+  width: 500px;
+  height: 500px;
+  z-index: 2;
 }
 
 .tabs {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: min(70vw, 600px);
-    height: min(60vw, 500px);
-    transition: background-color, color 0.3s ease-in;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: min(70vw, 600px);
+  height: min(60vw, 500px);
+  transition: background-color, color 0.3s ease-in;
 }
 
 .tabs label {
-    order: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: calc(33.3% - 4rem);
-    height: 28px;
-    padding: 1rem 2rem;
-    cursor: pointer;
-    transition: background-color, color 0.3s ease-in;
+  order: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(33.3% - 4rem);
+  height: 28px;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: background-color, color 0.3s ease-in;
 }
 
 .tabs .tab {
-    order: 9;
-    flex-grow: 1;
-    width: 100%;
-    height: 0;
-    opacity: 0;
-    visibility: hidden;
-    box-shadow: -15px 15px 1em rgba(0, 0, 0, 0.2);
+  order: 9;
+  flex-grow: 1;
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: -15px 15px 1em rgba(0, 0, 0, 0.2);
 }
 
 .tabs input[type="radio"] + label {
-    color: black;
-    background-color: transparent;
+  color: black;
+  background-color: transparent;
 }
 
 .tabs input[type="radio"]:checked + label.breakingHeart {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    border-radius: 5px 5px 0 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 5px 5px 0 0;
 }
 
 .tabs input[type="radio"]:checked + label.breakingHeart + .tab {
-    visibility: visible;
-    height: 100%;
-    opacity: 1;
-    background-color: rgba(0, 0, 0, 0.8);
+  visibility: visible;
+  height: 100%;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .tabs input[type="radio"]:checked + label.thisTown {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    border-radius: 5px 5px 0 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 5px 5px 0 0;
 }
 
 .tabs input[type="radio"]:checked + label.thisTown + .tab {
-    visibility: visible;
-    height: 100%;
-    opacity: 1;
-    background-color: rgba(0, 0, 0, 0.8);
+  visibility: visible;
+  height: 100%;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .tabs input[type="radio"]:checked + label.fadingOut {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    border-radius: 5px 5px 0 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 5px 5px 0 0;
 }
 
 .tabs input[type="radio"]:checked + label.fadingOut + .tab {
-    visibility: visible;
-    height: 100%;
-    opacity: 1;
-    background-color: rgba(0, 0, 0, 0.8);
+  visibility: visible;
+  height: 100%;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Disable the radio buttons */
 .tabs input[type="radio"] {
-    display: none;
+  display: none;
 }
 
 audio {
-    position: fixed;
-    width: min(70vw, 600px);
-    left: 50%;
-    bottom: 10px;
-    margin-left: max(-35vw, -300px);
-    z-index: 3;
+  position: fixed;
+  width: min(70vw, 600px);
+  left: 50%;
+  bottom: 10px;
+  margin-left: max(-35vw, -300px);
+  z-index: 3;
 }
 
 /* ToDo: Implement mobile view */
 @media (max-width: 465px) {
-    .tabs .tab,
-    .tabs label {
-        order: initial;
-    }
+  .tabs .tab,
+  .tabs label {
+    order: initial;
+  }
 
-    .tabs label {
-        width: 100%;
-        margin-left: 50px;
-    }
+  .tabs label {
+    width: 100%;
+    margin-left: 50px;
+  }
 }
