@@ -1,17 +1,12 @@
-.icons-wrapper {
-  display: flex;
-  flex-direction: row;
-  align-self: center;
-  width: fit-content;
-  height: 100%;
-  color: white;
-}
-
 .icon-wrapper {
-  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 200px);
+  margin-right: 1vw;
+  z-index: 3;
 }
 
 .icon {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  padding: 0.3vh 0;
 }

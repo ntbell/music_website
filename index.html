@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- ToDo: Fix search engine relevance -->
 
 <head>
   <title>Reno Music</title>
@@ -12,58 +11,31 @@
 </head>
 
 <body>
-  <!-- Navbar -->
-  <div class="navbar">
-    <div>Reno</div>
-    <div class="icons-wrapper">
-      <a class="icon-wrapper" href="mailto: contactrenomusic@gmail.com">
-        <img class="icon" src="./svgs/socials/email.svg" />
-      </a>
-      <a class="icon-wrapper" href="https://soundcloud.com/reno_music" target="_blank">
-        <img class="icon" src="./svgs/socials/soundcloud.svg" />
-      </a>
-      <a class="icon-wrapper" href="https://www.facebook.com/renodjofficial/" target="_blank">
-        <img class="icon" src="./svgs/socials/facebook.svg" />
-      </a>
-      <a class="icon-wrapper" href="https://www.instagram.com/reno_music_/" target="_blank">
-        <img class="icon" src="./svgs/socials/instagram.svg" />
-      </a>
-    </div>
+  <h2 class="title">Reno</h2>
+
+  <div class="cactus" id="thisTown">
+    <canvas class="canvas" id="canvas"></canvas>
+    <video class="video" autoplay muted loop>
+      <source src="./videos/cactus-spin_VP9.webm" type="video/webm" />
+      Your browser is not supported. Please try chrome or firefox!
+    </video>
   </div>
 
-  <div class="tabs">
-    <input type="radio" name="tabs" id="thisTown" />
-    <label for="thisTown" class="thisTown">This Town</label>
-    <div class="tab">
-      <div class="cactus">
-        <video width="500" autoplay muted loop>
-          <source src="./videos/cactus-spin_VP9.webm" type="video/webm" />
-          Your browser is not supported. Please try another!
-        </video>
-      </div>
-    </div>
-    <input type="radio" name="tabs" id="fadingOut" class="thisTown" />
-    <label for="fadingOut" class="fadingOut">Fading Out</label>
-    <div class="tab">
-      <div class="cactus">
-        <video width="500" autoplay muted loop>
-          <source src="./videos/cactus-spin_VP9.webm" type="video/webm" />
-          Your browser is not supported. Please try another!
-        </video>
-      </div>
-    </div>
-    <input type="radio" name="tabs" id="breakingHeart" />
-    <label for="breakingHeart" class="breakingHeart">Breaking Heart</label>
-    <div class="tab">
-      <div class="cactus">
-        <video width="500" autoplay muted loop>
-          <source src="./videos/cactus-spin_VP9.webm" type="video/webm" />
-          Your browser is not supported. Please try another!
-        </video>
-      </div>
-    </div>
+
+  <div class="icon-wrapper">
+    <a href="mailto: contactrenomusic@gmail.com">
+      <img class="icon" src="./svgs/socials/email.svg" />
+    </a>
+    <a href="https://soundcloud.com/reno_music" target="_blank">
+      <img class="icon" src="./svgs/socials/soundcloud.svg" />
+    </a>
+    <a href="https://www.facebook.com/renodjofficial/" target="_blank">
+      <img class="icon" src="./svgs/socials/facebook.svg" />
+    </a>
+    <a href="https://www.instagram.com/reno_music_/" target="_blank">
+      <img class="icon" src="./svgs/socials/instagram.svg" />
+    </a>
   </div>
-  <canvas id="canvas" class="canvas"></canvas>
 
   <audio id="audio" controls hidden>
     <source type="audio/mpeg" />

@@ -7,13 +7,13 @@
  * Value must be greater than 0 to render the visualizer bars.
  * It is NOT capped at 1
  */
-export const BAR_HEIGHT_MODIFIER = 0.6;
+export const BAR_HEIGHT_MODIFIER = 1.2;
 
 // Width of the bars (thickness)
-export const BAR_WIDTH = 3;
+export const BAR_WIDTH = 10;
 
 // Dimensions of the visualizer's canvas (square width/height)
-export const CANVAS_SIZE = 500;
+export const CANVAS_SIZE = 1500;
 
 // Radius of the circle around which the visualizer bars are drawn
 export const RADIUS = 0.4 * (CANVAS_SIZE / 2);
