@@ -18,7 +18,7 @@ export const SONG_NAMES = {
  * Name of the song, corresponding to its relative file location
  */
 export const SONG_LINKS_BY_NAME = {
-  [SONG_NAMES.THIS_TOWN]: "../music/thisTown.mp3",
-  // [SONG_NAMES.BREAKING_HEART]: "../music/breakingHeart.mp3",
-  // [SONG_NAMES.FADING_OUT]: "../music/fadingOut.mp3",
+  [SONG_NAMES.THIS_TOWN]: "./music/thisTown.mp3",
+  // [SONG_NAMES.BREAKING_HEART]: "./music/breakingHeart.mp3",
+  // [SONG_NAMES.FADING_OUT]: "./music/fadingOut.mp3",
 };
