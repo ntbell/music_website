@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "GunfighterAcademy-Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("GunfighterAcademy-Regular"),
+    url("GunfighterAcademy-Regular.otf") format("truetype");
+}

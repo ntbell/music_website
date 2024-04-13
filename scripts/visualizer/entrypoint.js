@@ -43,7 +43,7 @@ function attachListeners() {
   Object.values(SONG_NAMES).forEach((song) => {
     document
       .getElementById(song)
-      .addEventListener("click", () => playSong(song));
+      ?.addEventListener("click", () => playSong(song));
   });
 }
 

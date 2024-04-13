@@ -16,7 +16,5 @@ Built with JavaScript, HTML, and CSS.
 
 - Fix search engine relevance
 - Incorporate other songs?
-- Clean up unused things
-- Rename css classes
 - Break apart HTML?
 - Add GIF instead of screenshot in this file

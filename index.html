@@ -5,22 +5,21 @@
   <title>Reno Music</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./fonts/fonts.css" />
   <link rel="stylesheet" href="./styles.css" />
-  <link rel="stylesheet" href="./svgs/styles.css" />
   <link rel="icon" href="./svgs/custom/cactus-green-bold.svg" />
 </head>
 
-<body>
-  <h2 class="title">Reno</h2>
+<body class="body">
+  <h2 class="title-wrapper">Reno</h2>
 
-  <div class="cactus" id="thisTown">
+  <div class="cactus-wrapper" id="thisTown">
     <canvas class="canvas" id="canvas"></canvas>
     <video class="video" autoplay muted loop>
       <source src="./videos/cactus-spin_VP9.webm" type="video/webm" />
       Your browser is not supported. Please try chrome or firefox!
     </video>
   </div>
-
 
   <div class="icon-wrapper">
     <a href="mailto: contactrenomusic@gmail.com">
@@ -37,7 +36,7 @@
     </a>
   </div>
 
-  <audio id="audio" controls hidden>
+  <audio class="audio-wrapper" id="audio" controls hidden>
     <source type="audio/mpeg" />
   </audio>
 

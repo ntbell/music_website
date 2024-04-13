@@ -1,39 +1,61 @@
-body {
+.body {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   height: 100vh;
-  width: 100vw;
   background: black;
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
-h2 {
-  margin: 0;
+.title-wrapper {
+  margin: 0 0 0 1vw;
   padding: 0;
   font-size: min(12vh, 12vw);
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "GunfighterAcademy-Regular";
   color: white;
+  font-weight: 100;
   writing-mode: vertical-rl;
   z-index: 3;
 }
 
-#canvas {
+.cactus-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+
+.audio-wrapper {
+  position: fixed;
+  width: min(70vw, 600px);
+  left: 50%;
+  bottom: 10px;
+  margin-left: max(-35vw, -300px);
+  z-index: 3;
+}
+
+.icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 180px);
+  margin: 0 1vw 0 0;
+  z-index: 3;
+}
+
+.icon {
+  width: 100%;
+  padding: 0.3vh 0;
+}
+
+.canvas {
   position: absolute;
   width: 100%;
   aspect-ratio: 1/1;
   align-self: center;
   z-index: 1;
-}
-
-.cactus {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  z-index: 2;
 }
 
 .video {
@@ -42,11 +64,29 @@ h2 {
   transform: translate(-0.7%, 0);
 }
 
-audio {
-  position: fixed;
-  width: min(70vw, 600px);
-  left: 50%;
-  bottom: 10px;
-  margin-left: max(-35vw, -300px);
-  z-index: 3;
+@media only screen and (max-width: 912px) {
+  /* For mobile */
+  .body {
+    flex-direction: column;
+  }
+
+  .title-wrapper {
+    margin: 0;
+    font-size: min(15vh, 15vw);
+    writing-mode: horizontal-tb;
+  }
+
+  .icon-wrapper {
+    flex-direction: row;
+    justify-content: center;
+    height: 10%;
+    width: 100%;
+    margin: 0 0 2vh 0;
+  }
+
+  .icon {
+    height: 100%;
+    width: auto;
+    padding: 0 0.3vh;
+  }
 }
