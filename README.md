@@ -15,6 +15,4 @@ Built with JavaScript, HTML, and CSS.
 - Switch icons and text to horizontal on mobile
 
 - Fix search engine relevance
-- Incorporate other songs?
-- Break apart HTML?
 - Add GIF instead of screenshot in this file

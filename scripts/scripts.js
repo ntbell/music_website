@@ -1,3 +1,3 @@
-import visualizerEntrypoint from "./visualizer/entrypoint.js";
+import playSong from "./visualizer/playSong.js";
 
-export { visualizerEntrypoint };
+export { playSong };
