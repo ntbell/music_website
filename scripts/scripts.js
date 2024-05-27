@@ -6,4 +6,7 @@ window.onload = () => {
   playSongOnClick();
 };
 
+const videoEl = document.getElementsByTagName("video")[0];
+videoEl.addEventListener("onsuspend", () => autoplayVideo());
+
 export default { autoplayVideo, playSongOnClick };
