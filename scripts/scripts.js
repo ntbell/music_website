@@ -1,3 +1,7 @@
-import playSong from "./visualizer/playSong.js";
+import autoplayVideo from "./visualizer/playVideo.js";
+import playSongOnClick from "./visualizer/playSong.js";
 
-export { playSong };
+window.onload = () => {
+  autoplayVideo();
+  playSongOnClick();
+};

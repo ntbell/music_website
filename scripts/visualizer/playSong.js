@@ -9,7 +9,7 @@ let firstSong = true;
  * Plays the selected song and adds a visualizer
  * @param {String} song The song to play
  */
-export default function playSong(song) {
+function playSong(song) {
   // Create and attach the analyser
   if (firstSong) {
     firstSong = false;
@@ -32,7 +32,10 @@ export default function playSong(song) {
   prevSong = song;
 }
 
-function attachListeners() {
+/**
+ * Adds click listeners to the DOM elements of SONG_NAMES ids to trigger playSong
+ */
+export default function playSongOnClick() {
   // Play the song when we click on the Id === SONG_NAME
   Object.values(SONG_NAMES).forEach((song) => {
     document
@@ -40,5 +43,3 @@ function attachListeners() {
       ?.addEventListener("click", () => playSong(song));
   });
 }
-
-window.onload = attachListeners();
