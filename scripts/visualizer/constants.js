@@ -3,15 +3,6 @@
  */
 
 /**
- * Maximum amount of times to try to autoplay.
- * For use when autoplay doesn't work on video el (apple low power mode)
- */
-export const MAX_AUTOPLAY_RETRIES = 3;
-
-// Milliseconds between autoplay retries
-export const RETRY_DELAY = 200;
-
-/**
  * Coefficient for the impact of the frequency response on the bar height (length)
  * Value must be greater than 0 to render the visualizer bars.
  * It is NOT capped at 1

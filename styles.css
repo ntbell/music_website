@@ -60,6 +60,7 @@
 }
 
 .video {
+  display: none; /* This property should be updated by a script */
   width: 100%;
   /* The video is slightly off-centered */
   transform: translate(-0.7%, 0);
