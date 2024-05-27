@@ -8,7 +8,7 @@ import { MAX_AUTOPLAY_RETRIES, RETRY_DELAY } from "./constants.js";
  * @param {Integer} retries Tracks the number of times that we've retried this fn
  */
 export default async function autoplayVideo(retries = 0) {
-  const videoEl = document.getElementsByTagName("video");
+  const videoEl = document.getElementsByTagName("video")[0];
   const isStopped = Boolean(videoEl.paused || videoEl.ended);
 
   if (isStopped && retries < MAX_AUTOPLAY_RETRIES) {
