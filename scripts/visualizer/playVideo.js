@@ -17,5 +17,5 @@ export default async function autoplayVideo() {
   // Remove the hidden element from the DOM
   hiddenEl.remove();
   // Remove the { display: none } property from the shown element
-  shownEl.style.display = "inline";
+  shownEl.style.display = "block";
 }
