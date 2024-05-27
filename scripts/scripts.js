@@ -5,3 +5,5 @@ window.onload = () => {
   autoplayVideo();
   playSongOnClick();
 };
+
+export default { autoplayVideo, playSongOnClick };
